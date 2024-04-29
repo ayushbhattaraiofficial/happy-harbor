@@ -2,8 +2,13 @@
 
 .home {
     @include themify($themes) {
-        height: 100vh;
         background-color: themed("bgSoft");
         padding: 20px 70px;
+        @include mobile {
+            padding: 10px;
+        }
+        @include tablet {
+            padding: 20px;
+        }
     }
 }
