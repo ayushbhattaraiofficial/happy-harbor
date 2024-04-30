@@ -1,7 +1,7 @@
 -- These commands to create database and setup the tables are only for postgres
 -- Changes need to be made if any other distribution is used.
-CREATE DATABASE IF NOT EXISTS `happy-harbor`;
-USE `happy-harbor`;
+-- Ensure the database is created before running these commands.
+-- Also ensure that you are connected to that database using psql command.
 CREATE SCHEMA social;
 
 CREATE TABLE social.users (
@@ -21,7 +21,7 @@ CREATE TABLE social.posts (
     "desc" VARCHAR(200),
     image VARCHAR(200),
     userId INT NOT NULL,
-    createdAt TIMESTAMP WITHOUT TIME ZONE,
+    createdAt TIMESTAMP,
     FOREIGN KEY (userId) 
         REFERENCES social.users(id) 
         ON DELETE CASCADE 
@@ -31,7 +31,7 @@ CREATE TABLE social.posts (
 CREATE TABLE social.comments (
     id SERIAL PRIMARY KEY,
     "desc" VARCHAR(200),
-    createdAt TIMESTAMP WITHOUT TIME ZONE,
+    createdAt TIMESTAMP,
     userId INT NOT NULL,
     postId INT NOT NULL,
     FOREIGN KEY (userId) 
