@@ -67,7 +67,7 @@ export const Register = () => {
                             name="name"
                             onChange={handleChange}
                         />
-                        {err & err}
+                        {err && err}
                         <button onClick={handleClick}>Register</button>
                     </form>
                 </div>
